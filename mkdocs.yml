@@ -1,16 +1,16 @@
 # 项目信息
 site_name: my note blog # 项目名称
 site_url: https://localhost:8000/ # 我在nginx中使用的是8000端口，如果你使用的是80端口，可以直接写成https://localhost/。
-site_author: Shise # 作者
+site_author: ShiSeAB # 作者
 site_description: >- # 项目描述
   Welcome to Shise's notebook. This site serves as a personal knowledge base for me to record my thoughts and ideas. It is also a place for me to share my knowledge and experience with the world. I hope you find something useful here. 
 
 # 代码仓库信息
-repo_name: Shuaiwen-Cui/Infinity # 仓库名称
-repo_url: https://github.com/Shuaiwen-Cui/Infinity.git/ # 仓库地址
-
+repo_name: ShiSeAB/notebook # 仓库名称
+repo_url: https://github.com/ShiSeAB/notebook.git/ # 仓库地址
+#https://github.com/ShiSeAB/notebook/tree/master
 # 版权信息
-copyright: Copyright &copy; 2023 ~ now | 🚀 Shuaiwen Cui (Shaun)
+copyright: Copyright &copy; 2023 ~ now | 🚀 Chen Wu (ShiSe)
 
 # 配置
 theme:
