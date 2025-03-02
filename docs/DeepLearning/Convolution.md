@@ -4,13 +4,13 @@
 
 - 输入是一维向量 $x \in \mathbb{R}^{1*d}$的情况下，权重 $W\in \mathbb{R}^{h*d}$ (h为向量 $h$ 的大小)只需要为二维张量:
 
-  <img src="./Convolution.assets/image-20250301145818180.png" alt="image-20250301145818180" style="zoom:50%;float:left" />
+  ![image-20250301145818180](./Convolution.assets/image-20250301145818180.png)
 
 > ​	$h_j = \sum_{j}{W_{i,j}{x_j}} + b_j$
 
 - 在输入是二维图像 $X$ 的情况下，隐藏层表示 $H$ 在数学上是一个矩阵，在代码中表示为二维张量。使用 $[X]_{i,j}$ 和 $[H]_{i,j}$ 分别表示输入图像和隐藏表示中位置 $(i,j)$ 处的像素。此时要求权重 $W$ 为一个四维张量：
 
-  <img src="./Convolution.assets/image-20250301150053475.png" alt="image-20250301150053475" style="zoom:50%;" />
+  ![image-20250301150053475](./Convolution.assets/image-20250301150053475.png)
 
   为了节省参数（避免参数随着输入变大而变得无限多），我们假设有一个”检测器“扫描图像，将图像分割成多个区域(blocks)，并为每个区域包含目标的可能性打分。而索引a和b通过在正偏移和负偏移之间移动覆盖了整个图像，对于隐藏表示中任意给定位置 $( i , j ) $ 处的像素值 $ [H]_{i,j}$ , 通过对 $X$ 中以 $(i,j)$ 为中心的像素进行加权求和得到，权重为 $ v_{i,j,a,b}$ , 实现了 ”检测器“ 功能。
 
@@ -52,7 +52,7 @@ $$
 
 #### 2.1 二维交叉相关
 
-<img src="./Convolution.assets/image-20250301162234639.png" alt="image-20250301162234639" style="zoom:50%;float:left" />
+![image-20250301162234639](./Convolution.assets/image-20250301162234639.png)
 
 #### 2.2 一维和三维交叉相关
 
