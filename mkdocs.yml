@@ -1,12 +1,12 @@
 # 项目信息
 site_name: my note blog # 项目名称
-site_url: https://localhost:8000/ # 我在nginx中使用的是8000端口，如果你使用的是80端口，可以直接写成https://localhost/。
+site_url: https://shiseab.github.io/notebook/ # 我在nginx中使用的是8000端口，如果你使用的是80端口，可以直接写成https://localhost/。
 site_author: ShiSeAB # 作者
 site_description: >- # 项目描述
   Welcome to Shise's notebook. This site serves as a personal knowledge base for me to record my thoughts and ideas. It is also a place for me to share my knowledge and experience with the world. I hope you find something useful here. 
 
 # 代码仓库信息
-repo_name: ShiSeAB/notebook # 仓库名称
+repo_name: notebook # 仓库名称
 repo_url: https://github.com/ShiSeAB/notebook.git/ # 仓库地址
 #https://github.com/ShiSeAB/notebook/tree/master
 # 版权信息
@@ -114,25 +114,7 @@ plugins:
           build: true
           nav_translations: # 导航栏翻译，不可以有缩进
             HOME: 首页
-            ABOUT: 关于
             Deep Learning: 深度学习
-            SPONSORSHIP: 赞助
-            CS: 计算机
-            CODING: 编程
-            EMBEDDED-SYS: 嵌入式系统
-            DSP: 数字信号处理
-            PERCEPTION: 感知
-            ACTUATION: 执行
-            IOT: 物联网
-            CLOUD: 云
-            CLOUD-TECH: 云技术
-            HANDS-ON: 上手实践
-            Have A Server: 拥有一台服务器
-            Server Configuration: 服务器配置
-            Get A Domain Name: 获得一个域名
-            AI: 人工智能
-            RESEARCH: 研究
-            PROJECT: 项目
 # Hooks - 讲真，这个东西我还没搞懂
 # hooks:
 #   - material/overrides/hooks/shortcodes.py
@@ -246,8 +228,8 @@ markdown_extensions: # markdown extensions
 # 导航树 - 请按照我的做法来做，否则可能无法正常工作。引号可以省略。开头的点和斜杠也可以省略 ("./HOME/about.md" 或 Home/about.md) 。注意，导航树这里的文件名是 filename.md 这样的，但在文件夹中，它实际上被命名为 filename.en.md 和 filename.zh.md。我猜测默认是英文，所以, index.en.md 和 index.md 是一样的。i18n插件会自动识别文件名，然后根据文件名的后缀来切换语言。所以，如果你想添加一个新页面，你需要添加两个文件，一个是 filename.en.md，另一个是 filename.zh.md。其中，filename.en.md 也可以被命名为 filename.md，但是 filename.zh.md 不能被命名为 filename.md，否则会导致无法识别。
 nav: 
   - HOME: 
-      - "index.md"
+    - "index.md"
       #- ABOUT: "./HOME/about.md"
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - Deep Learning:
-      - "DeepLearning/卷积.md"
+    - 卷积神经网络: DeepLearning/卷积.md
