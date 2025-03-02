@@ -1,45 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://shiseab.github.io/notebook/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/"/>
+         <loc>https://shiseab.github.io/notebook/</loc>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
-        <loc>https://shiseab.github.io/notebook/DeepLearning/Convolution/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/DeepLearning/Convolution/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/DeepLearning/Convolution/"/>
+         <loc>https://shiseab.github.io/notebook/DeepLearning/Convolution/</loc>
+         <lastmod>2025-03-02</lastmod>
     </url>
     <url>
-        <loc>https://shiseab.github.io/notebook/blog/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/blog/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/blog/"/>
-    </url>
-    <url>
-        <loc>https://shiseab.github.io/notebook/zh/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/"/>
-    </url>
-    <url>
-        <loc>https://shiseab.github.io/notebook/zh/DeepLearning/Convolution/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/DeepLearning/Convolution/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/DeepLearning/Convolution/"/>
-    </url>
-    <url>
-        <loc>https://shiseab.github.io/notebook/zh/blog/</loc>
-        <lastmod>2025-03-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/blog/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/blog/"/>
+         <loc>https://shiseab.github.io/notebook/blog/</loc>
+         <lastmod>2025-03-02</lastmod>
     </url>
 </urlset>
