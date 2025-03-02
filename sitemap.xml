@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://localhost:8000/</loc>
+        <loc>https://shiseab.github.io/notebook/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
+        <loc>https://shiseab.github.io/notebook/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/blog/</loc>
+        <loc>https://shiseab.github.io/notebook/blog/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/blog/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/blog/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/zh/</loc>
+        <loc>https://shiseab.github.io/notebook/zh/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
+        <loc>https://shiseab.github.io/notebook/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/zh/blog/</loc>
+        <loc>https://shiseab.github.io/notebook/zh/blog/</loc>
         <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://shiseab.github.io/notebook/zh/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shiseab.github.io/notebook/blog/"/>
     </url>
 </urlset>
