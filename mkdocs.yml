@@ -16,8 +16,8 @@ copyright: Copyright &copy; 2023 ~ now | 🚀 Chen Wu (ShiSe)
 theme:
   #custom_dir: material/overrides # 自定义文件夹，对于个别页面，如果你不想使用主题的默认样式，可以在这里进行修改，使用里面的文件覆盖主题的默认文件。具体可以参考material官方文档。
   name: material # 主题名称，Material已经是最优秀的选择了，相信我。
-  logo: static/images/logo.png # logo 图片
-  language: en # 默认语言
+  #logo: static/images/logo.png # logo 图片
+  language: zh # 默认语言
   features: # 功能  
     - announce.dismiss # 可以叉掉公告的功能
     - content.action.edit # 编辑按钮，似乎没啥用
@@ -115,6 +115,7 @@ plugins:
           nav_translations: # 导航栏翻译，不可以有缩进
             HOME: 首页
             ABOUT: 关于
+            Deep Learning: 深度学习
             SPONSORSHIP: 赞助
             CS: 计算机
             CODING: 编程
@@ -168,18 +169,18 @@ extra:
   #     link: /zh/
   #     lang: zh
   social: # 社交媒体
-    - icon: fontawesome/solid/house
-      link: http://www.cuishuaiwen.com/
+  #  - icon: fontawesome/solid/house
+  #    link: http://www.cuishuaiwen.com/
     - icon: fontawesome/brands/github
-      link: https://github.com/Shuaiwen-Cui
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/shaun-shuaiwen-cui/
-    - icon: fontawesome/brands/researchgate
-      link: https://www.researchgate.net/profile/Shuaiwen-Cui
-    - icon: fontawesome/brands/orcid
-      link: https://orcid.org/0000-0003-4447-6687
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ShuaiwenC
+      link: https://github.com/ShiSeAB
+  #  - icon: fontawesome/brands/linkedin
+  #    link: https://www.linkedin.com/in/shaun-shuaiwen-cui/
+  #  - icon: fontawesome/brands/researchgate
+  #    link: https://www.researchgate.net/profile/Shuaiwen-Cui
+  #  - icon: fontawesome/brands/orcid
+  #    link: https://orcid.org/0000-0003-4447-6687
+  #  - icon: fontawesome/brands/twitter
+  #    link: https://twitter.com/ShuaiwenC
   tags: # 自定义标签
     Default: default-tag
     Hardware: hardware-tag
@@ -248,3 +249,5 @@ nav:
       - "index.md"
       #- ABOUT: "./HOME/about.md"
       #- SPONSORSHIP: "./HOME/sponsorship.md"
+  - Deep Learning:
+      - "DeepLearning/卷积.md"
