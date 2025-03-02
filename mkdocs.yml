@@ -232,4 +232,4 @@ nav:
       #- ABOUT: "./HOME/about.md"
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - Deep Learning:
-    - 卷积神经网络: DeepLearning/卷积.md
+    - 卷积神经网络: DeepLearning/Convolution.md
