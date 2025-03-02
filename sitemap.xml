@@ -2,28 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://localhost:8000/</loc>
-        <lastmod>2025-02-16</lastmod>
+        <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
+        <lastmod>2025-03-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/blog/</loc>
-        <lastmod>2025-02-16</lastmod>
+        <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/</loc>
-        <lastmod>2025-02-16</lastmod>
+        <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/</loc>
+        <lastmod>2025-03-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/DeepLearning/%E5%8D%B7%E7%A7%AF/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/zh/blog/</loc>
-        <lastmod>2025-02-16</lastmod>
+        <lastmod>2025-03-02</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
