@@ -8,7 +8,6 @@ site_description: >- # 项目描述
 # 代码仓库信息
 repo_name: notebook # 仓库名称
 repo_url: https://github.com/ShiSeAB/notebook.git/ # 仓库地址
-#https://github.com/ShiSeAB/notebook/tree/master
 # 版权信息
 copyright: Copyright &copy; 2023 ~ now | 🚀 Chen Wu (ShiSe)
 
@@ -16,7 +15,6 @@ copyright: Copyright &copy; 2023 ~ now | 🚀 Chen Wu (ShiSe)
 theme:
   #custom_dir: material/overrides # 自定义文件夹，对于个别页面，如果你不想使用主题的默认样式，可以在这里进行修改，使用里面的文件覆盖主题的默认文件。具体可以参考material官方文档。
   name: material # 主题名称，Material已经是最优秀的选择了，相信我。
-  #logo: static/images/logo.png # logo 图片
   language: zh # 默认语言
   features: # 功能  
     - content.code.annotate # 代码注释，具体不清楚
@@ -42,7 +40,7 @@ theme:
     primary: black
     scheme: default
   font: # 字体，大概率不需要换
-    text: Roboto
+    text: LXGW WenKai Screen GB Screen
     code: Roboto Mono
   favicon: assets/favicon.png # 网站图标 似乎不需要管
 
@@ -115,9 +113,10 @@ markdown_extensions: # markdown extensions
   - pymdownx.tilde
 
 extra_css:
-#- assets/stylesheets.css
+- assets/stylesheets.css
 - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
 - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+
 extra_javascript:
 - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
 - https://polyfill.io/v3/polyfill.min.js?features=es6
