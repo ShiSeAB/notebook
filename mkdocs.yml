@@ -1,12 +1,12 @@
 # 项目信息
-site_name: my note blog # 项目名称
+site_name: ShiSe的notebook # 项目名称
 site_url: https://shiseab.github.io/notebook/ # 我在nginx中使用的是8000端口，如果你使用的是80端口，可以直接写成https://localhost/。
 site_author: ShiSeAB # 作者
 site_description: >- # 项目描述
   Welcome to Shise's notebook. This site serves as a personal knowledge base for me to record my thoughts and ideas. It is also a place for me to share my knowledge and experience with the world. I hope you find something useful here. 
 
 # 代码仓库信息
-repo_name: notebook # 仓库名称
+repo_name: ShiSeAB/notebook # 仓库名称
 repo_url: https://github.com/ShiSeAB/notebook.git/ # 仓库地址
 # 版权信息
 copyright: Copyright &copy; 2023 ~ now | 🚀 Chen Wu (ShiSe)
@@ -46,15 +46,7 @@ theme:
 
 # Plugins
 plugins:
-  - tags # 标签功能插件
-  - blog # 博客功能插件
-  - rss: # rss订阅插件 - 不太懂是干嘛的目前
-      match_path: blog/posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
+  #- changelog
   - search: # 搜索插件
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
   - minify: # 压缩插件
@@ -113,16 +105,23 @@ markdown_extensions: # markdown extensions
   - pymdownx.tilde
 
 extra_css:
-  - assets/stylesheets.css
+#- assets/stylesheets.css
   - css/custom.css
+  - css/card.css
+  - css/tasklist.css
+  - css/flink.css
+  - css/more_changelog.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
 
 extra_javascript:
+  - js/baidu-tongji.js
+  - js/katex.js
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 
 # 导航树 - 请按照我的做法来做，否则可能无法正常工作。引号可以省略。开头的点和斜杠也可以省略 ("./HOME/about.md" 或 Home/about.md) 。注意，导航树这里的文件名是 filename.md 这样的，但在文件夹中，它实际上被命名为 filename.en.md 和 filename.zh.md。我猜测默认是英文，所以, index.en.md 和 index.md 是一样的。i18n插件会自动识别文件名，然后根据文件名的后缀来切换语言。所以，如果你想添加一个新页面，你需要添加两个文件，一个是 filename.en.md，另一个是 filename.zh.md。其中，filename.en.md 也可以被命名为 filename.md，但是 filename.zh.md 不能被命名为 filename.md，否则会导致无法识别。
 nav: 
@@ -132,3 +131,6 @@ nav:
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - Deep Learning:
     - 卷积神经网络: DeepLearning/Convolution.md
+  - CS课程:
+    - 编译原理:
+      - 词法分析: Compiler/Lexical Analysis.md
