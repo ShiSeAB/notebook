@@ -135,5 +135,5 @@ nav:
     - 编译原理:
       - 词法分析: Compiler/Lexical Analysis.md
       - 语法分析: Compiler/Parsing.md
-    - 计算机网络:
-    - 汇编与接口:
+    #- 计算机网络:
+    #- 汇编与接口:
