@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://shiseab.github.io/notebook/</loc>
-         <lastmod>2025-03-02</lastmod>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/Compiler/Lexical%20Analysis/</loc>
+         <lastmod>2025-03-03</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Convolution/</loc>
-         <lastmod>2025-03-02</lastmod>
+         <lastmod>2025-03-03</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/blog/</loc>
-         <lastmod>2025-03-02</lastmod>
+         <lastmod>2025-03-03</lastmod>
     </url>
 </urlset>
