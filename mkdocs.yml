@@ -136,6 +136,7 @@ nav:
     - 编译原理:
       - 词法分析: Compiler/Lexical Analysis.md
       - 语法分析: Compiler/Parsing.md
-    - 自然语言处理导论: nlp/Deep Learning Basic.md
+    - 自然语言处理导论: 
+      - 深度学习基础: nlp/Deep Learning Basic.md
     #- 计算机网络:
     #- 汇编与接口:
