@@ -131,7 +131,8 @@ nav:
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - Deep Learning:
     - 卷积神经网络: DeepLearning/Convolution.md
-    - 现代神经网络架构: DeepLearning/Modern CNN.md
+    - 现代卷积神经网络架构: DeepLearning/Modern CNN.md
+    - 循环神经网络: DeepLearning/Recurrent neural network.md
   - CS课程:
     - 编译原理:
       - 词法分析: Compiler/Lexical Analysis.md

@@ -18,11 +18,11 @@ ML = Looking for a function 寻找一个映射
 
 <img src="./Deep%20Learning%20Basic.assets/image-20250228135735952.png" alt="image-20250228135735952" />
 
-### 1.1 define a set of function
+## 1. define a set of function
 
 目前使用的模型便是神经网络。
 
-#### Neural Network
+### 1.1 Neural Network
 
 - Neuron
 
@@ -53,7 +53,7 @@ ML = Looking for a function 寻找一个映射
 
 
 
-### 1.2 goodness of function
+## 2. goodness of function
 
 - Training Data
 
@@ -73,7 +73,9 @@ ML = Looking for a function 寻找一个映射
 
 
 
-### 1.3 pick the best function
+## 3. pick the best function
+
+优化过程：通过对损失函数求梯度，确定优化方向，从而一步步接近最优解
 
 ![image-20250228145459186](./Deep%20Learning%20Basic.assets/image-20250228145459186.png)
 
