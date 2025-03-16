@@ -241,3 +241,122 @@ len(corpus), len(vocab)
 
 ## 3. 语言模型
 
+- 概念：给定文本序列 $x_1,...,x_T$，语言模型的目标是估计**联合概率** $p(x_1,..,x_T)$.
+  - 预训练模型
+  - 生成文本。给定前面的词，不断使用 $x_t \textasciitilde P(x_t|x_{t-1},...x_1)$，一个理想的语言模型就能够基于模型本身生成自然文本。
+  - 判断多个语言序列中哪个更常见。例如“人咬狗”和“狗咬人”，显然是后者更常见
+
+### 3.1 建模
+
+![image-20250312195930974](./Recurrent%20neural%20network.assets/image-20250312195930974.png)
+
+- n是总词数corpus(token的数量)，$n(x),n(x,x')$ 是单个单词和连续单词的出现次数
+
+![image-20250312200234490](./Recurrent%20neural%20network.assets/image-20250312200234490.png)
+
+#### N元语法
+
+​	当文本序列很长时，如果文本量不够大，那么文本序列出现次数很可能小于1.为了解决这个问题。利用马尔可夫假设，其中N就是 $\tau$ ：
+
+![image-20250312200640649](./Recurrent%20neural%20network.assets/image-20250312200640649.png)
+
+N越大，需要存的信息就越多：每个长为N的序列的概率都要被存下来。但一般一元语法不可行，因为会大大高估 *停用词* 的频率。
+
+```python
+import random
+import torch
+from d2l import torch as d2l
+
+tokens = d2l.tokenize(d2l.read_time_machine())
+# 因为每个文本行不一定是一个句子或一个段落，因此我们把所有文本行拼接到一起
+corpus = [token for line in tokens for token in line]
+vocab = d2l.Vocab(corpus)
+vocab.token_freqs[:10]
+#freq是一元语法中的词元频率，bigram_freq二元，trigram_freqs三元
+bigram_freqs = [freq for token, freq in bigram_vocab.token_freqs]
+trigram_freqs = [freq for token, freq in trigram_vocab.token_freqs]
+d2l.plot([freqs, bigram_freqs, trigram_freqs], xlabel='token: x',
+         ylabel='frequency: n(x)', xscale='log', yscale='log',
+         legend=['unigram', 'bigram', 'trigram'])
+```
+
+发现单词序列遵循齐普夫定律，指数大小受序列长度影响：
+
+![image-20250312202448950](./Recurrent%20neural%20network.assets/image-20250312202448950.png)
+
+### 3.2 读取长序列数据
+
+​	给定一个长序列，随机抽取其中一个长为 $\tau$ 的文本序列作为输入X（称为**随机采样**），预测下一个词元，因此输出标签Y是移位了一个词元的原始序列。为避免一个文本数据被使用多次，将长序列划分为相同长度的子序列，作为小批量被输入到模型中。设置随机偏移量k，从长序列的词元k处开始划分。
+
+```python
+#num_steps相当于tau
+def seq_data_iter_random(corpus, batch_size, num_steps):  #@save
+    """使用随机抽样生成一个小批量子序列"""
+    # 从随机偏移量randint(0, num_steps - 1)开始对序列进行分区，随机范围包括num_steps-1
+    corpus = corpus[random.randint(0, num_steps - 1):]
+    # 减去1，是因为我们需要考虑标签，子序列数量
+    num_subseqs = (len(corpus) - 1) // num_steps
+    # 长度为num_steps的子序列的起始索引，即在长序列中的位置，每次跳num_steps个token
+    initial_indices = list(range(0, num_subseqs * num_steps, num_steps))
+    # 打乱子序列顺序
+    # 在随机抽样的迭代过程中，
+    # 来自两个相邻的、随机的、小批量中的子序列不一定在原始序列上相邻
+    random.shuffle(initial_indices)
+
+    def data(pos):
+        # 返回从pos位置开始的长度为num_steps的序列
+        return corpus[pos: pos + num_steps]
+
+    num_batches = num_subseqs // batch_size
+    for i in range(0, batch_size * num_batches, batch_size):
+        # 在这里，initial_indices包含子序列的随机起始索引
+        initial_indices_per_batch = initial_indices[i: i + batch_size]
+        X = [data(j) for j in initial_indices_per_batch]
+        Y = [data(j + 1) for j in initial_indices_per_batch]
+        yield torch.tensor(X), torch.tensor(Y)
+```
+
+​	在迭代过程中，除了对原始序列可以随机抽样外， 我们还可以保证两个相邻的小批量中的子序列在原始序列上也是相邻的。称之为 **顺序分区** 。效果如下：
+
+![image-20250312214124653](./Recurrent%20neural%20network.assets/image-20250312214124653.png)
+
+​	我们可以看到每个批量中的两个子序列分别与其它批量中对应子序列相邻。
+
+
+
+## 4. RNN
+
+​	利用隐变量，输入“你”，隐变量应预测到“好”，接着输入“好”，隐变量预测到“，”……
+
+![image-20250312220344986](./Recurrent%20neural%20network.assets/image-20250312220344986.png) 
+
+RNN模型为：
+
+![image-20250312220649557](./Recurrent%20neural%20network.assets/image-20250312220649557.png)
+
+$W_{hh}是h_{t-1}$ 的权重，拥有一定时序的预测目的；$W_{hx}$ 是 $x_{t-1}$ 的权重，$b_h$ 是bias。
+
+### 4.1 Perplexity 困惑度
+
+我们可以通过一个序列中所有的n个词元的交叉熵损失的平均值来衡量模型的质量：
+
+![image-20250312222450418](./Recurrent%20neural%20network.assets/image-20250312222450418-1741789491849-1.png)
+
+其中 P 由语言模型给出，$x_t$ 是时间步 t 从该序列中观察到的实际词元。
+
+不过困惑度多取了一个指数：
+
+![image-20250312223903117](./Recurrent%20neural%20network.assets/image-20250312223903117.png)
+
+困惑度的最好的理解是“下一个词元的实际选择数的调和平均数”，最好情况下为1，完美预测；最坏情况下无穷大。
+
+### 4.2 梯度裁剪
+
+​	$g$ 表示一个存放所有层梯度的向量，如果 $g$ 的模超过 $\theta$，那么就将其“拉回来”：
+
+![image-20250312225532105](./Recurrent%20neural%20network.assets/image-20250312225532105.png)
+
+​	这一策略用于解决梯度过大的问题。
+
+
+
