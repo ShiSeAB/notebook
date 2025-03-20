@@ -159,35 +159,88 @@
 
 ## 4. 递归下降分析
 
+递归下降分析(Recursive-Descent Parsing)是自顶向下分析的通用形式
+
 ![image-20250305225327249](./Parsing.assets/image-20250305225327249.png)
 
-![image-20250306141225579](./Parsing.assets/image-20250306141225579.png)
+![image-20250316220755879](./Parsing.assets/image-20250316220755879.png)
+
+### 4.1 回溯
+
+![image-20250316220906616](./Parsing.assets/image-20250316220906616.png)
+
+但复杂的回溯会导致代价太高：
+
+- 非终结符有可能有多个产生式，由于信息缺失，无法准确预测选择哪一个
+- 考虑到往往需要对多个非终结符进行推导展开，因此尝试的路径可能呈指数级爆炸
 
 
 
 ## 5. LL(1)和预测分析法
 
-##### 5.1 LL(1)文法
+Predictive Parsing预测分析法用于解决复杂回溯的问题，该方法接受 LL(k) 语法
+
+### 5.1 LL(1)文法
 
 LL(k) 文法：
 
 ![image-20250305225906597](./Parsing.assets/image-20250305225906597.png)
 
-LL(1)文法具体要求：
+#### 5.1.1 First，Follow集
+
+![image-20250316221216261](./Parsing.assets/image-20250316221216261.png)
+
+![image-20250316221227325](./Parsing.assets/image-20250316221227325.png)
+
+First和Follow集涉及 **空串** ，故引入Nullable概念：
+
+![image-20250316221342551](./Parsing.assets/image-20250316221342551.png)
+
+**First集归纳定义**
+
+![image-20250316221501691](./Parsing.assets/image-20250316221501691.png)
+
+**Follow集归纳定义**
+
+![image-20250316221534670](./Parsing.assets/image-20250316221534670.png)
+
+![image-20250316221631646](./Parsing.assets/image-20250316221631646.png)
+
+例：
+
+![image-20250316221709735](./Parsing.assets/image-20250316221709735.png)
+
+接着观察是否有符号为Nullable：
+
+![1742134671661](./Parsing.assets/1742134671661.png)
+
+计算完Nullable后计算First，首先将First集初始化为空集，接着填充：
+
+![image-20250316221939621](./Parsing.assets/image-20250316221939621.png)
+
+![image-20250316222038652](./Parsing.assets/image-20250316222038652.png)
+
+计算Follow，也是先初始化为空串再填充：
+
+![image-20250316222239475](./Parsing.assets/image-20250316222239475.png)
+
+#### 5.1.2 LL(1)文法定义：
 
 ![image-20250306135904599](./Parsing.assets/image-20250306135904599.png)
 
-### 3.2 LL(1)预测分析表
+### 5.2 LL(1)预测分析
+
+#### 5.2.1 构造预测分析表
 
 预测分析表定义：
 
 ![image-20250306140026578](./Parsing.assets/image-20250306140026578.png)
 
-如何构造预测分析表：
+如何构造预测分析表-例：
 
 ![image-20250306140414047](./Parsing.assets/image-20250306140414047.png)
 
-因 $Z\rightarrow XYZ$满足上面的两个if条件：
+因 $Z\rightarrow XYZ$ 满足上面的两个if条件：
 
 - $a \in First(X)$
 - $c \in First(X)$
@@ -195,11 +248,43 @@ LL(1)文法具体要求：
 
 最后得到：
 
-![image-20250306140903178](./Parsing.assets/image-20250306140903178.png)
+![image-20250316230100007](./Parsing.assets/image-20250316230100007.png)
 
-#### 3.2.2 递归下降预测分析
+- $d\in First(d),a\in First(a),c\in First(c)$
+- $Y \rightarrow \epsilon$  Follow(Y) = {a,c,d}
+- $X\rightarrow Y$ ，Y 为空串，且Follow(X) = {a,c,d}
 
+不过，LL(1)的预测分析表中，每个单元格最多只能有一个元素，如果多余就不符合文法（选择不唯一，无法Parsing）。
 
+#### 5.2.1 递归下降实现
+
+LL(1)递归下降实现-例1：
+
+![image-20250316231933439](./Parsing.assets/image-20250316231933439.png)
+
+![image-20250316231949544](./Parsing.assets/image-20250316231949544.png)
+
+![image-20250316232007703](./Parsing.assets/image-20250316232007703.png)
+
+该例中由于每个non-terminal规则生成的第一个symbols都是不同的，所以不需要Follow。
+
+例2：
+
+![image-20250316232547694](./Parsing.assets/image-20250316232547694.png)
+
+用一个比较简单的文法来展现预测分析表的用途：
+$$
+S\rightarrow ES' \\
+S'\rightarrow \epsilon|+S\\
+E\rightarrow num|(S)
+$$
+Parsing table 如下：
+
+![image-20250317112454600](./Parsing.assets/image-20250317112454600.png)
+
+所以当input为 $(1+2+(3+4))+5$ 时，初始为S状态，检测到 '(' ，使用rule $S\rightarrow ES'$ ，再由 $E\rightarrow(S)$匹配'('; 匹配前一个后输入num '1'，根据预测表选择对应rule…… ：
+
+![image-20250317112725937](./Parsing.assets/image-20250317112725937.png)
 
 
 
@@ -209,7 +294,7 @@ LL(1)文法具体要求：
 
 ![image-20250306143404655](./Parsing.assets/image-20250306143404655.png)
 
-​	有左公因子的文法会导致回溯，增加时间复杂度，所以需要提左公因子：
+有左公因子(left-factored) 的文法(存在共同前缀)会导致回溯，增加时间复杂度，所以需要提左公因子：
 
 ![image-20250306143624209](./Parsing.assets/image-20250306143624209.png)
 
@@ -229,11 +314,21 @@ LL(1)文法具体要求：
 
 ## 7. 错误恢复
 
+错误类型如下：
+
+- 词法错误，如标识符、关键字或算符的拼写错
+
+- 语法错误，如算术表达式的括号不配对
+
+- 语义错误，如算符作用于不相容的运算对象
 
 
 
+以下程序没有词法错误，但是有多个语法错误：
 
+![image-20250317135047953](./Parsing.assets/image-20250317135047953.png)
 
+……例子待补充
 
 
 
