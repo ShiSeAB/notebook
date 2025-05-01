@@ -12,11 +12,7 @@ counter: True
 
 ##  Preliminaries
 
-------
-
 ### token Importance
-
-------
 
 启发问题：Does every token in the CoT output contribute equally to deriving the answer?” 
 
@@ -43,8 +39,6 @@ counter: True
 
 ### CoT recovery
 
-------
-
 问题：Are LLMs capable of restoring the CoT process from compressed outputs?
 
 答案是肯定的，如下图：
@@ -57,21 +51,15 @@ counter: True
 
 ##  TokenSkip
 
-------
-
 ![image-20250423223358137](./TokenSkip.assets/image-20250423223358137.png)
 
 ### Token Pruning
-
-------
 
 从大语言模型（LLM）的思维链输出中修剪掉冗余 token，并利用这些经过修剪的思维链轨迹对大语言模型进行微调。The token pruning process is guided by the concept of token importance.
 
 过程：根据LLMLingua-2计算每个思维链token的语义重要性 $I(c)$，据此排序，给定期望压缩率 $\gamma$ ，代表修剪阈值（比如γ=0.6，保留60%的token）
 
 ###  Training
-
-------
 
 数据准备：
 
@@ -89,8 +77,6 @@ counter: True
 
 ### Inference
 
-------
-
 推理时，prompt格式如下：
 
 [question x, [EOS], $\gamma$ ,[EOS]]
@@ -99,15 +85,11 @@ counter: True
 
 ## Experiment
 
-------
-
 实验数据集： GSM8K & MATH-500；实验模型： LLaMA-3.1-8B-Instruct & Qwen2.5-Instruct series
 
 评估指标：accuracy, the number of CoT tokens, and inference latency per sample，用来自DeepSeek-Math的脚本来评估模型性能。此外，CoT 的实际压缩率也会用于与指导压缩率比较。
 
 #### 实验细节
-
-------
 
 LLMLingua2压缩 CoT，压缩率 $\gamma$ 从 {0.5, 0.6, 0.7, 0.8, 0.9, 1.0} 中随机选择，采用LoRA 微调（秩 r 设置为 8，缩放参数 α 设置为 16，仅调整0.2%的模型参数）
 
@@ -117,14 +99,10 @@ Pytorch 2.1.0 on 2×NVIDIA GeForce RTX 3090 GPU (24GB) with CUDA 12.1, and an In
 
 #### Baseline
 
-1. ------
-
-   Prompt-based Reduction：通过prompt 指示大模型在CoT过程中减少固定比例的输出token
+1. Prompt-based Reduction：通过prompt 指示大模型在CoT过程中减少固定比例的输出token
 2. Truncation: 强制截断，即限制输出标记的最大数量，将思维链的输出压缩到一个固定的长度。
 
 #### 实验结果
-
-------
 
 TokenSkip 在 GSM8K 数据集上使用 Qwen2.5-Instruct 系列模型的性能表现：可以发现，模型规模越大，压缩率对性能影响更小（Qwen2.5-14B-Instruct 在修剪掉 40% 的标记时，几乎没有性能下降（下降幅度小于 0.4%）。即使在压缩率为 0.5 的情况下，该模型仍保持着较强的推理能力，性能仅下降 2%）
 
@@ -138,11 +116,7 @@ prompt-based reduction 方法中，实际压缩率与目标压缩率不符。在
 
 #### 分析
 
-------
-
 ##### Compression Ratio
-
-------
 
 为了探究在 Compression Ratio 较低（压缩较多）情况下 TokenSkip 的性能表现，训练变体模型 'More Ratio'，用于测当 $\gamma = 0.3 ~and~ 0.4$ 的情况，发现符合程度大幅降低，且在整体上符合程度不如 TokenSkip：
 
@@ -152,8 +126,6 @@ prompt-based reduction 方法中，实际压缩率与目标压缩率不符。在
 
 #####  Importance Metric
 
-------
-
 不同模型给 token 重要性打分，其中，让GPT-4o 给出思维链轨迹的最佳压缩格式建议，这一情况被称为 GPT-4o-Optimal 。将所有由  GPT-4o 生成的训练数据用于训练 TokenSkip 变体，用 [optimal] token 来提示模型，得到 GPT-4o-Optimal 结果。
 
 <img src="./TokenSkip.assets/image-20250424153300243.png" alt="image-20250424153300243" style="zoom:50%;" />
@@ -162,15 +134,11 @@ prompt-based reduction 方法中，实际压缩率与目标压缩率不符。在
 
 ##### length Budget
 
-------
-
 <img src="./TokenSkip.assets/image-20250424161734492.png" alt="image-20250424161734492" style="zoom:50%;" />
 
 
 
 ##### case
-
-------
 
 这些示例清晰地表明，TokenSkip 使得大语言模型能够学习关键推理标记之间的捷径，而不是从头生成更短的思维链（CoT）.
 

@@ -128,8 +128,10 @@ nav:
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
   - 论文阅读:
-    - DeepSeek-R1: essays/DeepSeek-R1.md
-    - TokenSkip: essays/TokenSkip.md
-    - DEER: essays/DEER.md
+    - RL:
+      - DeepSeek-R1: essays/DeepSeek-R1.md
+    - CoT:
+      - TokenSkip: essays/TokenSkip.md
+      - DEER: essays/DEER.md
     #- 计算机网络:
     #- 汇编与接口:
