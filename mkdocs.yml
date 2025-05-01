@@ -48,6 +48,7 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
   - minify: # 压缩插件
       minify_html: true
+  - changelog
 
 
 # 扩展
@@ -85,16 +86,14 @@ markdown_extensions:
 
 extra_css:
 #- assets/stylesheets.css
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - css/custom.css
   - css/card.css
   - css/tasklist.css
   - css/flink.css
   - css/more_changelog.css
-  - css/latex.css
-  - css/extra.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
 
 extra_javascript:
   - js/baidu-tongji.js
