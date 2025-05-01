@@ -16,33 +16,30 @@ theme:
   #custom_dir: material/overrides # 自定义文件夹，对于个别页面，如果你不想使用主题的默认样式，可以在这里进行修改，使用里面的文件覆盖主题的默认文件。具体可以参考material官方文档。
   name: material # 主题名称，Material已经是最优秀的选择了，相信我。
   language: zh # 默认语言
-  features: # 功能  
-    - content.code.annotate # 代码注释，具体不清楚
-    - content.code.copy # 复制代码按钮
-    - content.tooltips # 不太清楚呢这个
-    - navigation.expand # 默认展开导航栏
-    - navigation.footer # 底部导航栏
-    - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
-    # - navigation.instant # 瞬间加载 - 如果这个开着，那么语言切换后就会跳转至首页，所以我关掉了
-    - navigation.path # 导航路径， 目前好像没啥用
-    # - navigation.prune # 只构建可见的页面
-    - navigation.sections # 导航栏的section
-    - navigation.tabs # 顶级索引被作为tab
-    - navigation.tabs.sticky # tab始终可见
-    - navigation.top # 开启顶部导航栏
-    - navigation.tracking # 导航栏跟踪
-    - search.highlight # 搜索高亮
-    - search.share # 搜索分享
-    - search.suggest # 搜索建议
-    - toc.follow # 目录跟踪-页面右侧的小目录
-    # - toc.integrate # 目录跟踪集成到左侧大目录中
-  palette:
-    primary: black
-    scheme: default
-  font: # 字体，大概率不需要换
-    text: LXGW WenKai Screen GB Screen
-    code: Roboto Mono
-  favicon: assets/favicon.png # 网站图标 似乎不需要管
+  custom_dir: overrides
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font:
+    text: LXGW WenKai Screen
+    code: JetBrains Mono
+  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
+    - media: "(prefers-color-scheme: light)" 
+      scheme: default  #配色方案：浅色模式
+      primary: brown  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      accent: brown  #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
+      toggle:
+        icon: material/weather-sunny #图标，太阳
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"  
+      scheme: slate  #配色方案：深色模式
+      # primary: Brown  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      toggle:
+        icon: material/weather-night  #图标，月亮
+        name: Switch to light mode
 
 # Plugins
 plugins:
@@ -54,55 +51,37 @@ plugins:
 
 
 # 扩展
-markdown_extensions: # markdown extensions
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
+markdown_extensions:
   - toc:
       permalink: true
-      slugify: !!python/name:pymdownx.slugs.uslugify # enable Unicode link
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
   - pymdownx.keys
-  - pymdownx.magiclink:
-      normalize_issue_symbols: true
-      repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
   - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.snippets:
-      auto_append:
-        - includes/mkdocs.md
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols  #智能符号
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true
-      combine_header_slug: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
+      alternate_style: true 
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
 
 extra_css:
 #- assets/stylesheets.css
