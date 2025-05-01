@@ -2,7 +2,7 @@
 
 ## 1. 词法分析概述
 
-程序以 **字符串** 的形式传递给编译器，所以词法分析的任务是讲输入字符串识别为 **有意义的子串** 
+程序以 **字符串** 的形式传递给编译器，所以词法分析的任务是将输入字符串识别为 **有意义的子串** 
 
 - partition input strings into substrings(==Lexeme==)
 - classify them according to their roles(==Tokens==)
@@ -22,13 +22,19 @@
 ### 2.1 形式语言
 
 - **字母表**(alphabet)：符号的有限集合
-- **串** (String, word) : 字母表中符号的有穷序列
+- **串** (String, word) : 字母表中符号的 **有穷序列**
   - 串s的长度，通常记作|s|，是指s中符号的个数
   - 空串是长度为0的串，用 ε（epsilon）表示
 
 
 
-!!! warning "$\varepsilon$ 表示空串，{$\varepsilon$}是一个非空集合，里面的元素是一个空串，$\emptyset$是一个空集"
+!!! warning "
+
+$\varepsilon$ 表示空串，{$\varepsilon$}是一个非空集合
+
+里面的元素是一个空串
+
+$\emptyset$是一个空集
 
 
 
@@ -194,7 +200,7 @@ $\varepsilon - closure(move(B,b)) = \varepsilon-closure(5,9)$ 记为D
 
 ### 4.3 DFA简化
 
-一个正则语言可对应于多个识别此语言的DFA，我们需要找到状态数量最少的DFA，这是一个唯一的DFA。
+一个正则语言可对应于多个识别此语言的DFA，我们需要找到
 
 #### Distinguishable States
 

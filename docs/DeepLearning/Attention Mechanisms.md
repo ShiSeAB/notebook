@@ -157,3 +157,29 @@ class Seq2SeqAttentionDecoder(AttentionDecoder):
         return self._attention_weights
 ```
 
+
+
+## 4. Self-Attention and Position Encoding
+
+### 4.1 Self-Attention
+
+![image-20250320232546690](./Attention%20Mechanisms.assets/image-20250320232546690.png)
+
+给定输入 *tokens序列*  $x_1,...,x_n \in \mathbb{R}^d$ （为什么token是长为d的向量，因为words通过embedding变成词向量），该序列的自注意力输出为一个长度相同的序列 $y_1,...,y_n$ ， 其中：
+
+
+$$
+y_i = f(x_i,(x_1,x_1),...,(x_n,x_n)) \in \mathbb{R}^d
+$$
+
+
+将 $x_i$ 当作key，value，query来对序列抽取特征来得到输出序列。
+
+#### 与CNN，RNN对比
+
+![image-20250320233635483](./Attention%20Mechanisms.assets/image-20250320233635483.png)
+
+![image-20250320233422941](./Attention%20Mechanisms.assets/image-20250320233422941.png)
+
+- GPU可以作并行运算，所以有并行度来衡量
+- 最长路径指，$x_1$ 到 $x_n$ 需要经过多少

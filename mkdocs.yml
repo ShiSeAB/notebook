@@ -144,7 +144,13 @@ nav:
       - 语法分析: 
         - Top-Down: Compiler/Parsing.md
         - Bottom-Up: Compiler/Parsing - 2.md
+      - 抽象语法: Commpiler/Abstract Syntax.md
+      - 语义分析: Compiler/Semantic Analysis.md
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
+    - 论文阅读:
+      - DeepSeek-R1: essays/DeepSeek-R1.md
+      - TokenSkip: essays/TokenSkip.md
+      - DEER: essays/DEER.md
     #- 计算机网络:
     #- 汇编与接口:
