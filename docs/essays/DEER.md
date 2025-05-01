@@ -6,9 +6,7 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(?去搜�
 
 平均将思维链序列的长度缩短了 31% 至 43%，同时将准确率提高了 1.7% 至 5.7%。
 
-
-
-介绍
+### 1. 介绍
 
 思维链的冗余可归因于 supervised fine-tuning 或强化学习，在这些阶段中，模型在生成过程中动态调整其推理长度的能力被忽视了。
 
@@ -20,24 +18,24 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(?去搜�
 - Trial Answer Inducing：
 - Confidence Evaluating
 
-### Preliminaries
+### 2. Preliminaries
 
-#### LRLM 生成模式：
+#### 2.1 LRLM 生成模式：
 
 - use delimiters分隔符 to divide the output into two processes: slow thinking and conclusion，在慢思考过程中进行系统且全面的推理，最终总结思维过程并在结论部分给出最终答案。
 - During the slow thinking process, LRLMs engage in complex thinking actions, such as Problem Restatement & Comprehension, Approach Exploration, and Result Verification
 
-将每个 thinking action 成为一个 thinking chunk，chunks之间的转换通常由 **action transition points ** 标记（including ”Wait”, ”Alternatively”, and ”Hmm”）
+将每个 thinking action 成为一个 thinking chunk，chunks之间的转换通常由 **action transition points** 标记（including ”Wait”, ”Alternatively”, and ”Hmm”）
 
 ![image-20250430220651213](./Dynamic%20Early%20Exit%20in%20Reasoning%20Models.assets/image-20250430220651213.png)
 
-#### Budget Forcing
+#### 2.2 Budget Forcing
 
 该方法利用 LRLMs 中独特的生成模式来控制 test-time computation. 一种简单的解码时干预措施，即在测试时强制设定慢思考标记的最大数量和最小数量。具体而言，当达到标记数量上限时，他们会附加思考结束标记分隔符以及 “最终答案：”，以便提前退出思考阶段。为了确保达到标记数量下限，抑制思考结束标记分隔符的生成，并在大型推理语言模型正在进行的思维过程中添加动作转换点，从而促使模型再次检查其答案或尝试新的推理方法。然而，他们提出的预算强制方法是 static 的，仍有很大的改进空间。
 
 
 
-### Motivation and Observations
+### 3. Motivation and Observations
 
 分析LRLMs 中的 overthinking 问题，并探究 static early exit 的影响。
 
@@ -53,7 +51,7 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(?去搜�
 
 
 
-### Method
+### 4. Method
 
 core idea: 对 trial answer 的 confidence 表明 LRLMs 生成最终答案所需的思维信息是否充足. 
 
@@ -90,7 +88,9 @@ core idea: 对 trial answer 的 confidence 表明 LRLMs 生成最终答案所需
 
 
 
-### Experiment
+### 5. Experiment
+
+#### 5.1 Implementation
 
 ![image-20250501133736123](./Dynamic%20Early%20Exit%20in%20Reasoning%20Models.assets/image-20250501133736123.png)
 
@@ -110,7 +110,7 @@ Metrics：
 
 实现细节：zero-shot CoT("think step by step, and put your final answer within \boxed{}.") 采用 greedy decoding with a single sample for the correctness evaluation. Apply rule-based evaluations directly to verify mathematical equivalence. Max generation len = 16384
 
-#### Result
+#### 5.2 Result
 
 ![image-20250501134840218](./Dynamic%20Early%20Exit%20in%20Reasoning%20Models.assets/image-20250501134840218.png)
 
@@ -118,7 +118,7 @@ Metrics：
 
 LRLMs 在处理具有挑战性的问题时也会出现 overthinking 的现象，而且当模型的推理能力与基准测试的难度相匹配时，这种现象会更加明显(Diamind 和 AIME2024 中，随模型参数增多，deer对而vanilla CoT错的sample增加)。
 
-#### Discussion
+#### 5.3 Discussion
 
 阈值 $\lambda$ 的影响：分别设为 0.9（过早退出）、0.95 和 1.0（过晚退出）时的实验结果。结果表明，当阈值设置得过低时，推理长度相对0.95只会轻微缩短，但准确率显著下降，是一种“对overthinking的过度纠正”；相反，阈值设置过高时推理长度显著延长且准确率下降。
 
