@@ -48,7 +48,7 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
   - minify: # 压缩插件
       minify_html: true
-  - changelog
+  #- changelog
 
 
 # 扩展
