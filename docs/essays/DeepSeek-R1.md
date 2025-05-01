@@ -1,8 +1,8 @@
+---
+counter: True   
+---
+
 # DeepSeek-R1
-
-------
-
-
 
 - R1-zero 不将SFT(论文：instruct-GPT RLHF)作为初始步骤，但推理效果良好，不过会有可读性差、语言混杂等问题，故引入R1
 

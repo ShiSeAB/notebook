@@ -1,6 +1,8 @@
-# TokenSkip
+---
+counter: True   
+---
 
-------
+# TokenSkip
 
 **研究原因**：due to the autoregressive nature of LLM decoding, longer CoT outputs lead to a linear increase in inference latency, adversely affecting user experience, particularly when the CoT exceeds 10,000 tokens
 

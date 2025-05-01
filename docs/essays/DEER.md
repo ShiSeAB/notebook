@@ -1,4 +1,6 @@
-------
+---
+counter: True   
+---
 
 # Dynamic Early Exit in Reasoning Models
 
