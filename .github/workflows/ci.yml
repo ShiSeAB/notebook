@@ -24,6 +24,7 @@ jobs:
       - run: pip install mkdocs-rss-plugin
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-static-i18n
+      - run: pip install mkdocs-changelog-plugin
       - run: mkdocs gh-deploy --config-file mkdocs.yml --force
   deploy:
     needs: build_mkdocs

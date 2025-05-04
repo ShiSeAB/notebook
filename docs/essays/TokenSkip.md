@@ -159,7 +159,7 @@ prompt-based reduction 方法中，实际压缩率与目标压缩率不符。在
 
 TokenSkip 是比较符合人类思维的，我们思考时总倾向于过滤掉废话，优先思考更重要的信息流，以便效率最大化。个人认为方法很创新，
 
-但是只是思维链内容的优化，并没有真正解决思维链过长的根本问题 -- overthinking
+但是由于目前主流的解决 overthinking 的方式是将输出思维链分成序列thoughts后再根据转折词或语气词（“wait!” "Alternatively"）分类，所以TokenSkip可能会使得输出思维链无法被正确划分，也许可由被 TokenSkip 的思维链得到分类的新范式？
 
 
 

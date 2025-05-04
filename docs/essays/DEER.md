@@ -6,7 +6,7 @@ counter: True
 
 # Dynamic Early Exit in Reasoning Models
 
-Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(?去搜索了解概念)** ，即延长 long CoT 生成来解决复杂问题。然而，long CoT中的 overthinking 问题会降低问题解决的效率，而且由于推理步骤极其详细或冗余，还存在导致准确性下降的风险。
+Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(利用测试时的资源进行对模型能力的扩展)** ，延长 long CoT 生成来解决复杂问题是一种测试时缩放的方法。然而，long CoT中的 overthinking 问题会降低问题解决的效率，而且由于推理步骤极其详细或冗余，还存在导致准确性下降的风险。
 
 本文提出 “allows LLMs to self-truncate CoT sequences by early exit during generation” 的方法，The proposed method monitors model behavior at potential reasoning transition points (e.g.,“Wait” tokens)潜在推理转换点， and dynamically terminates the next reasoning chain’s generation when the model exhibits high confidence in a trial answer. 无需 additional training，并可无缝集成到现有类似o1推理LLMs.
 
@@ -16,7 +16,7 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(?去搜�
 
 思维链的冗余可归因于 supervised fine-tuning 或强化学习，在这些阶段中，模型在生成过程中动态调整其推理长度的能力被忽视了。
 
-识别"Pearl Reasoning"(he critical point where the reasoning information becomes just sufficient)，并迫使模型在这一点上停止进一步思考，直接输出结论，我们就能够兼顾准确性和效率。验证长思维链确有 Pearl 以后，问题来到如何找到“pearl reasoning”。
+识别"Pearl Reasoning"(the critical point where the reasoning information becomes just sufficient)，并迫使模型在这一点上停止进一步思考，直接输出结论，我们就能够兼顾准确性和效率。验证长思维链确有 Pearl 以后，问题来到如何找到“pearl reasoning”。
 
 论文方法为 **DEER** （Dynamic Early Exit in Reasonin），It regards the key moments when the model switches thought chains in reasoning as chances of early exit,  and prompting LRLMs to stop thinking and generate trial answers at these moments.
 
