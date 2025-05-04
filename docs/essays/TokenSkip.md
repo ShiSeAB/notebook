@@ -1,6 +1,10 @@
 ---
-counter: True   
+
+counter:  True
+
 ---
+
+
 
 # TokenSkip
 
@@ -151,7 +155,11 @@ prompt-based reduction 方法中，实际压缩率与目标压缩率不符。在
 
 
 
+## 思考
 
+TokenSkip 是比较符合人类思维的，我们思考时总倾向于过滤掉废话，优先思考更重要的信息流，以便效率最大化。个人认为方法很创新，
+
+但是只是思维链内容的优化，并没有真正解决思维链过长的根本问题 -- overthinking
 
 
 

@@ -48,7 +48,7 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
   - minify: # 压缩插件
       minify_html: true
-  #- changelog
+  - changelog
 
 
 # 扩展
@@ -132,5 +132,8 @@ nav:
     - CoT:
       - TokenSkip: essays/TokenSkip.md
       - DEER: essays/DEER.md
+      - ThoughtTerminator: essays/ThoughtTerminator.md
+      - SEAL: essays/SEAL.md
+      - MRT: essays/MRL.md
     #- 计算机网络:
     #- 汇编与接口:

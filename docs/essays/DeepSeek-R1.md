@@ -1,6 +1,10 @@
 ---
-counter: True   
+counter: true
 ---
+
+---
+
+
 
 # DeepSeek-R1
 
@@ -27,12 +31,12 @@ counter: True
 
 
 
-### R1-zero:
+## R1-zero:
 
 验证：能否仅通过强化学习（无需监督微调）激励LLMs的推理能力，self-evolution through a pure PL process
 - V3-base 作为 base model，采用GRPO作为 RL framework 来提高推理性能
 
-#### RL算法
+### RL算法
 
 通过强化学习直接对基础模型进行训练，采用 Group Relative Policy Optimization(GRPO Shao et al.,2024) 作为强化学习算法。GRPO算法的核心思想是通过采样一组输出，计算这些输出的奖励，并根据奖励的相对值来更新模型参数。以group score来估计baseline(公式看不懂……)
 
@@ -40,7 +44,7 @@ counter: True
 
 推理过程和答案分别在 <think></think> 和<answer></answer>标签内。
 
-#### Reward Modeling
+### Reward Modeling
 
 首先，什么是奖励模型？-- 用于打分评估大模型的回答，据此更新策略。例如在RLHF中：
 
@@ -57,11 +61,11 @@ counter: True
 
 不采用 outcome or process neural reward model ，因为 neural reward model 在large-scale RL过程中可能受 reward hacking影响，而重新训练耗费大量资源
 
-#### Training Template
+### Training Template
 
 设计一个简单模板（Table 1），用于引导 base model 遵循指定指令。模板要求 R1-zero 首先生成一个 **推理过程** ，然后给出最终答案。该模板避免了任何的 content-specific biases（mandating reflective reasoning or prompting particular problem-solving strategies），以确保我们能够在强化学习过程中准确观察到模型的自然演进过程。
 
-#### Performance
+### Performance
 
 ……
 
@@ -69,13 +73,13 @@ counter: True
 
 同时通过 majority voting 进一步提升性能
 
-#### Self-evolution Process
+### Self-evolution Process
 
 在训练过程中，通过 extended test-time computation ，获得了解决越来越复杂的推理任务的能力。computation中，生成数百到数千个推理tokens，使模型能够更深入地探索和完善其思维过程。
 
 这种自我进化最显著的特点之一，就是随着 test-time computation 的增加，复杂行为开始出现。例如 reflection（模型重新审视并重新评估之前的步骤，以及自发探索解决问题的替代方法），这些行为是模型与RL环境互动的结果，而非编程设定。
 
-#### Aha Moment
+### Aha Moment
 
 在训练 DeepSeek-R1-Zero 的过程中，一个特别有趣的现象是 “顿悟时刻” 的出现。在这个阶段，DeepSeek-R1-Zero 通过重新评估其初始方法，学会为一个问题分配更多的思考时间。
 
@@ -85,7 +89,7 @@ counter: True
 
 
 
-### R1
+## R1
 
 - 首先收集 thousands of cold-start data to fine-tune the V3-base model
 - 接着像R1-zero一样执行reasoning-oriented RL，在接近收敛时，通过在 RL checkpoint 进行 rejection sampling ？来创建新的SFT data，并结合 V3 在写作、事实性问答和自我认知等领域的supervised data，接着retrain V3-base
@@ -94,7 +98,7 @@ counter: True
 
 
 
-#### Cold start
+### Cold start
 
 构建并收集少量 long CoT data 用于微调模型，使模型作为 intial RL actor. 收集数据策略：
 
@@ -114,7 +118,7 @@ special_token|<reasoning_process>|special_token|<summary>
 
 
 
-#### Reasoning-oriented RL
+### Reasoning-oriented RL
 
 微调以后，采用与R1-zero 相同的大规模强化学习训练过程，这一阶段专注于提升模型的推理能力，特别是在编码、数学、科学和逻辑推理等推理密集型任务中，这些任务涉及定义明确、有清晰解决方案的问题。
 
@@ -124,7 +128,7 @@ special_token|<reasoning_process>|special_token|<summary>
 
 
 
-#### Rejection Sampling and SFT
+### Rejection Sampling and SFT
 
 当 reasoning-oriented RL 收敛后，我们利用结果 checkpoint 来收集用于下一轮训练的监督微调（SFT）数据。不过这部分的SFT数据主要聚焦于整合来自其他领域的数据，以增强模型在写作、角色扮演及其他通用任务方面的能力，不像初始 cold-start data 聚焦于推理。生成数据并微调模型步骤如下：
 
@@ -136,7 +140,7 @@ special_token|<reasoning_process>|special_token|<summary>
 
 
 
-#### RL for all Scenarios
+### RL for all Scenarios
 
 这是第二阶段的强化学习，目的是为了使模型进一步符合人类偏好、提高模型实用性和无害性，并优化推理能力。具体过程：结合 reward signals and diverse prompt distributions 来训模型。 对于推理数据，我们遵循 R1 - Zero 中概述的方法，利用基于规则的奖励来指导数学、编码和逻辑推理领域的学习过程。对于一般数据，我们借助奖励模型来捕捉复杂微妙场景中的人类偏好。我们以 DeepSeek - V3 的流程为基础，采用类似的偏好对和训练提示分布。
 
@@ -144,7 +148,7 @@ special_token|<reasoning_process>|special_token|<summary>
 
 ![image-20250331203718375](./DeepSeek-R1.assets/image-20250331203718375.png)
 
-### Distillation
+## Distillation
 
 为了让更高效的小模型具备像 DeepSeek-R1 那样的推理能力，我们按照 2.3.3 节所述，使用通过 DeepSeek-R1 整理的 80 万个样本，直接对 Qwen 和 Llama 等开源模型进行微调。这种直接的蒸馏方法显著提升了小模型的推理能力。
 
@@ -154,7 +158,7 @@ special_token|<reasoning_process>|special_token|<summary>
 
 
 
-### Discussion：Distillation vs RL
+## Discussion：Distillation vs RL
 
 通过对 DeepSeek-R1 进行蒸馏，小模型能够取得令人瞩目的成果。然而，仍然存在一个问题：在不进行蒸馏的情况下，小模型能否通过本文所讨论的大规模强化学习训练达到与之相当的性能呢？
 
