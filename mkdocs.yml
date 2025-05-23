@@ -123,6 +123,7 @@ nav:
         - Top-Down: Compiler/Parsing.md
         - Bottom-Up: Compiler/Parsing - 2.md
       - 抽象语法: Commpiler/Abstract Syntax.md
+      - 活动记录: Compiler/Activition Record.md
       - 语义分析: Compiler/Semantic Analysis.md
       - 中间代码生成: Compiler/ch7-IR.md
       - 基本块: Compiler/ch8.md
