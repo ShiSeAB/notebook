@@ -112,7 +112,7 @@ nav:
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - AI:
     - 强化学习:
-      - 基础知识: RL/Basic_1.md
+      - 基础知识: RL/basic_1.md
     - 深度学习:
       - 卷积神经网络: DeepLearning/Convolution.md
       - 现代卷积神经网络架构: DeepLearning/Modern CNN.md
@@ -121,13 +121,13 @@ nav:
       - 注意力机制: DeepLearning/Attention Mechanisms
   - CS课程:
     - 编译原理:
-      - 词法分析: Compiler/Lexical Analysis.md
+      - 词法分析: Compiler/Lexical_Analysis.md
       - 语法分析: 
         - Top-Down: Compiler/Parsing.md
-        - Bottom-Up: Compiler/Parsing - 2.md
-      - 抽象语法: Commpiler/Abstract Syntax.md
-      - 活动记录: Compiler/Activition Record.md
-      - 语义分析: Compiler/Semantic Analysis.md
+        - Bottom-Up: Compiler/Parsing-2.md
+      - 抽象语法: Compiler/Abstract_Syntax.md
+      - 活动记录: Compiler/Activation_Record.md
+      - 语义分析: Compiler/Semantic_Analysis.md
       - 中间代码生成: Compiler/ch7-IR.md
       - 基本块: Compiler/ch8.md
       - 指令选择: Compiler/ch9.md
