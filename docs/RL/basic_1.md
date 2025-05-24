@@ -8,13 +8,15 @@
 
 Return ： $U_t = R_t + R_{t+1}+R_{t+2}+...$
 
-Discounted return : $U_t = R_t + \gamma R_{t+1}+{\gamma}^2R_{t+2}+...$
+Discounted return : $U_t = R_t + \gamma R_{t+1}+{\gamma}^2R_{t+2}+...$ ，回报是一个累积的概念，它考虑了从当前时刻开始到未来某个时刻（可能是一个完整的回合结束）的所有奖励
 
 Action-Value function : $Q_{\pi}(s_t,a_t)=E[U_t|S_t=s_t,A_t=a_t]$ ，评价当前状态下的当前动作好坏
 
 Optimal Action-Value function : $Q^*(s_t,a_t) = max_\pi Q_\pi (s_t,a_t)$ , 通过最大化消除 policy function 对该函数影响，得到基于当前状态的当前动作的最高分，不会有更高的分数了
 
 State-value function : $V_\pi (S_t)=E_A[Q_\pi(s_t,A)]$ ，评价当前状态是好是坏，并评价policy（因为状态函数越大，说明胜算越大，所以策略越好）
+
+Advantage Function : $A_\theta(s,a)=Q_\theta(s,a)-V_\theta(s)$ ，表示在 state s 下，做出 Action a，比其他动作能带来多少优势。
 
 
 
@@ -96,7 +98,30 @@ Monte Carlo refers to algorithms that rely on repeated random sampling to obtain
 
 
 
+### Policy Gradient
 
+按照 policy model 执行出 trajectory $\tau=\{s_1,a_1,r_1,s_2,a_2,r_2...\}$ , 其概率为：
+
+![image-20250523214204654](./basic_1.assets/image-20250523214204654.png)
+
+我们希望利用神经网络的概率决策玩了很多局游戏之后，获得的总回报期望最⾼（ $R(\tau)$ 表示轨迹最终的discounted return）
+
+![image-20250523214253207](./basic_1.assets/image-20250523214253207.png)
+
+求梯度，然后使用蒙特卡罗近似来采样，得到期望估计值：
+
+![image-20250523214421988](./basic_1.assets/image-20250523214421988.png)
+
+![image-20250523214636226](./basic_1.assets/image-20250523214636226.png)
+
+- t表示每条轨迹中的第t步
+- n表示第n次采样得到的轨迹
+
+给所有动作的 reward 都减去一个 baseline，以分辨在当前局势下，哪个动作相对较好：
+
+![image-20250524104315430](./basic_1.assets/image-20250524104315430.png)
+
+用 action-value function 代替 $R_t^n$ ，state-value function 代替 baseline （可以理解成 actor-critic架构），那么公式变为： $\frac{1}{N}\sum_{n=1}^{N}\sum_{t=1}^{T_n}A_\theta(s_n^t,a_n^t)\nabla logP_\theta(a_n^t|s_n^t)$
 
 
 

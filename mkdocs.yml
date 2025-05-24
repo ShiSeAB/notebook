@@ -113,6 +113,8 @@ nav:
   - AI:
     - 强化学习:
       - 基础知识: RL/basic_1.md
+      - TRPO: RL/TRPO.md
+      - PPO: RL/PPO.md
     - 深度学习:
       - 卷积神经网络: DeepLearning/Convolution.md
       - 现代卷积神经网络架构: DeepLearning/Modern CNN.md
