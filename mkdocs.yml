@@ -133,6 +133,8 @@ nav:
       - 中间代码生成: Compiler/ch7-IR.md
       - 基本块: Compiler/ch8.md
       - 指令选择: Compiler/ch9.md
+      - 活跃变量分析: Compiler/ch10.md
+      - 寄存器分配: Compiler/ch11.md
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
   - 论文阅读:
@@ -148,5 +150,6 @@ nav:
       - SocialGenome: essays/Social/SocialGenome.md
       - MiMeQA: essays/Social/MiMeQA.md
       - EgoToM: essays/Social/EgoToM.md
+      - TextSocial: essays/Social/Text-Social Benchmark.md
     #- 计算机网络:
     #- 汇编与接口:
