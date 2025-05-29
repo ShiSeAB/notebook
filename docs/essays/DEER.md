@@ -16,7 +16,7 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(利用�
 
 思维链的冗余可归因于 supervised fine-tuning 或强化学习，在这些阶段中，模型在生成过程中动态调整其推理长度的能力被忽视了。
 
-识别"Pearl Reasoning"(the critical point where the reasoning information becomes just sufficient)，并迫使模型在这一点上停止进一步思考，直接输出结论，我们就能够兼顾准确性和效率。验证长思维链确有 Pearl 以后，问题来到如何找到“pearl reasoning”。
+识别"Pearl Reasoning"(the critical point where the reasoning information becomes just sufficient)，并迫使模型在这一点上停止进一步思考，直接输出结论，就能够兼顾准确性和效率。验证长思维链确有 Pearl 以后，问题来到如何找到“pearl reasoning”。
 
 论文方法为 **DEER** （Dynamic Early Exit in Reasonin），It regards the key moments when the model switches thought chains in reasoning as chances of early exit,  and prompting LRLMs to stop thinking and generate trial answers at these moments.
 
@@ -31,7 +31,7 @@ Large reasoning language models(LRLMs) 目前依赖 **test-time scaling(利用�
 - use delimiters分隔符 to divide the output into two processes: slow thinking and conclusion，在慢思考过程中进行系统且全面的推理，最终总结思维过程并在结论部分给出最终答案。
 - During the slow thinking process, LRLMs engage in complex thinking actions, such as Problem Restatement & Comprehension, Approach Exploration, and Result Verification
 
-将每个 thinking action 成为一个 thinking chunk，chunks之间的转换通常由 **action transition points** 标记（including ”Wait”, ”Alternatively”, and ”Hmm”）
+将每个 thinking action 称为一个 thinking chunk，chunks 之间的转换通常由 **action transition points** 标记（including ”Wait”, ”Alternatively”, and ”Hmm”）
 
 ![image-20250430220651213](./Dynamic%20Early%20Exit%20in%20Reasoning%20Models.assets/image-20250430220651213.png)
 
