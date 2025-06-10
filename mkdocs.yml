@@ -136,6 +136,8 @@ nav:
       - 活跃变量分析: Compiler/ch10.md
       - 寄存器分配: Compiler/ch11.md
       - 垃圾回收: Compiler/ch13.md
+      - 面向对象语言: Compiler/ch14.md
+      - 循环优化: Compiler/ch18.md
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
   - 论文阅读:
