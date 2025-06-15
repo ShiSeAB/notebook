@@ -28,13 +28,7 @@
 
 
 
-!!! warning "
-
-$\varepsilon$ 表示空串，{$\varepsilon$}是一个非空集合
-
-里面的元素是一个空串
-
-$\emptyset$是一个空集
+!!! warning "$\varepsilon$ 表示空串，{$\varepsilon$}是一个非空集合，里面的元素是一个空串，$\emptyset$是一个空集
 
 
 
@@ -174,7 +168,7 @@ NFA -> DFA示例：
 
 ![image-20250303133734883](./Lexical%20Analysis.assets/image-20250303133734883.png)
 
-接着计算 $\varepsilon - closure(move(A,a))$，记为$B$
+接着计算 $\varepsilon - closure(move(A,a))$，记为$B$. $move(A,a)=\{3,8\}$ 
 
 ![image-20250303133938578](./Lexical%20Analysis.assets/image-20250303133938578.png)
 
@@ -200,7 +194,7 @@ $\varepsilon - closure(move(B,b)) = \varepsilon-closure(5,9)$ 记为D
 
 ### 4.3 DFA简化
 
-一个正则语言可对应于多个识别此语言的DFA，我们需要找到
+一个正则语言可对应于多个识别此语言的DFA，我们需要找到最简单的。
 
 #### Distinguishable States
 
@@ -237,14 +231,12 @@ $\varepsilon - closure(move(B,b)) = \varepsilon-closure(5,9)$ 记为D
   
 
 - 构造部分
-
-  在$P_{final}$的每个组中选择一个状态作代表，作为最小化DFA中的状态
-
-  - 其中包含原开始状态的组选出的状态为新开始状态
+在$P_{final}$的每个组中选择一个状态作代表，作为最小化DFA中的状态
+  
+- 其中包含原开始状态的组选出的状态为新开始状态
   - 原接受状态组中必须只包含接受状态，选择出的状态为新接受状态
-
-  例：
-
-  ![image-20250303141835263](./Lexical%20Analysis.assets/image-20250303141835263.png)
-
+  
+例：
+  
+![image-20250303141835263](./Lexical%20Analysis.assets/image-20250303141835263.png)
   
