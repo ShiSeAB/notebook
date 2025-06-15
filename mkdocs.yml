@@ -123,6 +123,7 @@ nav:
       - 注意力机制: DeepLearning/Attention Mechanisms
   - CS课程:
     - 编译原理:
+      - Introduction: Compiler/Introduction.md
       - 词法分析: Compiler/Lexical_Analysis.md
       - 语法分析: 
         - Top-Down: Compiler/Parsing.md

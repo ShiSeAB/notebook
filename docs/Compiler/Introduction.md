@@ -1,6 +1,6 @@
 # Introduction
 
-### 什么是编程语言
+## 什么是编程语言
 
 A programming language is a notation for **describing computations** to people AND to machines
 
@@ -11,7 +11,7 @@ A programming language is a notation for **describing computations** to people A
 - **逻辑式**(Logic): Prolog, Datalog, …
 - **面向对象**(Object-Oriented): Smalltalk, Java, Eiffel, …
 
-### 编译器及其形式
+## 编译器及其形式
 
 编译器是一个程序，读入源程序并将其翻译成语义等价的目标程序
 
@@ -19,7 +19,7 @@ A programming language is a notation for **describing computations** to people A
 
 
 
-### 编译器的阶段
+## 编译器的阶段
 
 ![image-20250414163358996](./Introduction.assets/image-20250414163358996.png)
 
@@ -49,7 +49,7 @@ A programming language is a notation for **describing computations** to people A
 
 
 
-### 案例: Tiger编译器
+## 案例: Tiger编译器
 
 ![image-20250414164149245](./Introduction.assets/image-20250414164149245.png)
 
