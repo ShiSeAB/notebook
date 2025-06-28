@@ -49,7 +49,7 @@ Stack Frame 即 Activation record，是 a piece of memory on the stack for a fun
 
 ![image-20250413151307636](./Activation%20Record.assets/image-20250413151307636.png)
 
-rbp 存FP，rsp存SP；先将上一个frame的FP值push进栈，再将当前 SP 赋给 rbp，作为 current frame的FP。rdi 存函数传递的参数。rax将存函数返回值。
+x86中，rbp 存FP，rsp存SP；先将上一个frame的FP值push进栈，再将当前 SP 赋给 rbp，作为 current frame的FP。rdi 存函数传递的参数。rax将存函数返回值。
 
 **当函数 f 调用函数 g 时**，SP 指向 f 传递给 g 的第一个参数，g 通过从栈指针减去栈帧大小来分配自己的栈帧；**当进入函数 g 时**，将旧的帧指针 FP 保存在内存中，设置 FP = SP，使 FP 指向当前栈帧的基址；**当函数 g 退出时**，设置 SP = FP，恢复栈指针，从保存的位置获取旧的 FP 值(pop rbp)
 
@@ -103,7 +103,7 @@ callee-save例：
 
 1. 在调用h后a的值不再使用(不存在第5行)，这样就不用保存寄存器r1的值了。这可以通过优化代码做到。
 2. **Use global register allocation**: different functions use different set of registers to pass arguments. 如f可用寄存器r1接收参数，但通过寄存器r2给h传参
-3. **Leaf procedures**:不调用其他过程的为叶子过程(Leaf procedure)。叶子过程不必将传入的参数保存到存储器中
+3. **Leaf procedures**:不调用其他过程的为叶子过程(Leaf procedure)。叶子过程不必将传入的参数保存到存储器中。parameters of leaf procedures can be allocated in registers without causing any extra memory traffic
 4. Use **register windows** (as on SPARC): Each function invocation can allocate a fresh set of registers
 
 ### 2.2 Return Address
@@ -187,7 +187,7 @@ The static link is a pointer to the activation record of the enclosing procedure
 
 ![image-20250422102626825](./Activation%20Record.assets/image-20250422102626825.png)
 
-- pros: 参数传递的额外开销较少（每个激活记录只需要一个额外的指针）
+- pros: 参数传递的额外开销较少（每个 activation record 只需要一个额外的指针）
 - Cons : O(n) time to access a variable n levels up.
 
 ![image-20250422103628861](./Activation%20Record.assets/image-20250422103628861.png)
@@ -209,10 +209,10 @@ Display 是 a global array of pointers to frames
 
 ![image-20250422110359060](./Activation%20Record.assets/image-20250422110359060.png)
 
-push、pop的栈和函数栈帧不共用一个栈？
+push、pop的栈和函数栈帧共用一个栈？
 
-- Cons：O(1) access time to any lexical level; Simpler code generation
-- Pros：Complex context switching; Display array is a global resource
+- Pros：O(1) access time to any lexical level; Simpler code generation
+- Cons：Complex context switching; Display array is a global resource
 
 
 
@@ -228,12 +228,12 @@ push、pop的栈和函数栈帧不共用一个栈？
 
 ![image-20250422132937897](./Activation%20Record.assets/image-20250422132937897.png)
 
-Cons:
+Pros:
 
 - Simplified runtime environment: No need to maintain complex stack frames with static links or displays.
 - Optimization opportunities: Makes data flow explicit through parameters, etc
 
-Pros:
+Cons:
 
 - Performance overhead: Passing multiple extra parameters increases call overhead (unnecessary passing when the variables aren't used)
 - Limited applicability: Not always suitable for higher-order functions
@@ -248,7 +248,7 @@ Pros:
 
 <img src="./Activation%20Record.assets/image-20250422134453369.png" alt="image-20250422134453369" style="zoom:50%;" />
 
-- Frame point为特定寄存器(如rbp,SP)，其值为栈上的内存地址，地址内存中保存值为
+- Frame point为特定寄存器(如rbp,SP)，其值为栈上的内存地址，内存地址中保存的值为
 
   stack link (某个函数的frame point)
 

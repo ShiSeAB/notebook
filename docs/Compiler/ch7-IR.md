@@ -101,7 +101,7 @@ Static Single Assignment (SSA) 不考
 
 ![image-20250427104705556](./ch7-IR.assets/image-20250427104705556.png)
 
-- $e$ 表示 expressio
+- $e$ 表示 expression
 - $s$ 表示 statement
 - $o$ 表示 operator
 - $i$ 表示 integer
@@ -169,7 +169,7 @@ $$
 
 ![image-20250504223701490](./ch7-IR.assets/image-20250504223701490.png)
 
-
+第二个MEM应该是+8，第三个 MEM +相应偏移量。
 
 #### 3.1.2 Array Variables
 
@@ -206,9 +206,11 @@ L-value：
 
 ![image-20250504205540378](./ch7-IR.assets/image-20250504205540378.png)
 
-所以取 Structured L-value 时还需加上 object 在结构体内的偏移量 **S**：
+所以取 Structured L-value ：
 
 ![image-20250504205706536](./ch7-IR.assets/image-20250504205706536.png)
+
+- S indicates the size of the object to be fetched or stored. 它告诉 code generator 多少 byte 需要被 load/store，使用 word moves 还是 block moves，如何handle 对齐需求。
 
 #### 3.1.4 Subscripting and Field Selection
 

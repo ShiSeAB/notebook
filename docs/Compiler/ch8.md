@@ -40,7 +40,7 @@
 
 ![image-20250505162636396](./ch8.assets/image-20250505162636396.png)
 
-Commutativity (重点)：只有 s 和 e 互不影响才能 commute，否则需要用到 temporary
+Commutativity (重点)：commute 即只有 s 和 e 互不影响，此时可顺利交换，否则需要用到 temporary
 
 消除 $BINOP(op, e1, ESEQ(s, e2))$ 中的 ESEQ，由于 e1 必须比 s 先执行，s 又要比 e2 先执行，所以不能简单变换位置（s 可能有 side effect 使得 e1 值变化）
 
@@ -61,8 +61,8 @@ Commutativity (重点)：只有 s 和 e 互不影响才能 commute，否则需�
   - An empty statement commutes with any expression
   - 其它都假设为不可交换
 - 一定无法交换的两种情况
-  - s 会改变 a 中临时变量的值
-  - s 会改变 a 中内存地址
+  - s 会改变 e 中临时变量的值
+  - s 会改变 e 中内存地址
 
 ### move CALLs to top level
 
@@ -75,7 +75,12 @@ CALL 的问题：如1中说到，nest 时会导致寄存器冲突和语句副作
 Special Cases：
 
 - 当 CALL 是 EXP 的 direct chidren 时，CALL 已经在 top level，可以不变
+
+  ![image-20250617105856860](./ch8.assets/image-20250617105856860.png)
+
 - 当 CALL 的返回值直接被赋给一个 temp，就已经符合正则形式了，无需再改
+
+  ![image-20250617105909748](./ch8.assets/image-20250617105909748.png)
 
 ### eliminate SEQs
 
@@ -149,9 +154,7 @@ Trace 意为 **:** A sequence of statements that could be consecutively executed
 目的：generating a covering set of traces
 
 - Each trace is loop free
-- Each block must be in exactly one trace
-
-
+- Each block must be in **exactly one trace**
 
 
 

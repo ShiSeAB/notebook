@@ -74,7 +74,9 @@ Criteria:
   - tile 越小就越好覆盖树
   - tile 越大所需指令就越少
 
-**Optimum tiling** 是全局最好，**Optimal tiling** 是局部最好。假设除 MOVEM 需要 m 个 units，其它指令都只要 1 个 unit：左边是全局最优，右边是局部最优
+**Optimum tiling** 是全局最好，**Optimal tiling** 是局部最好。Every optimum tiling is also optimal, but not vice versa. 
+
+假设除 MOVEM 需要 m 个 units，其它指令都只要 1 个 unit：左边是全局最优，右边是局部最优
 
 ![image-20250508141857032](./ch9.assets/image-20250508141857032.png)
 
@@ -108,7 +110,7 @@ Maximal Munch 是 greedy 的 -- always picks the largest possible pattern at eac
 
 - Goal: find **minimum** total cost tiling of tree
 
-- IR tree 的每个 node 都有 cost ：对于每个 cost 为 $c_t$ 的 tile t，tile t 匹配结点 n，结点 n 匹配 t 的 cost 为：
+- IR tree 的每个 node 都有 cost ：对于每个 tile t , 匹配结点 n 的cost 为 $c_t$ ，那么匹配 t 的 cost 为：
 
   
   $$
@@ -159,8 +161,29 @@ Tiling Algorithm 的 efficiency 计算：
 
 **Solution** ：
 
-- Use a tree grammar (a special context-free grammar) to describe the tiles
+- Use a tree grammar (a special **context-free grammar**) to describe the tiles
 - Reduce instruction selection to a **parsing problem**
-- Use a generalization of the dynamic programming algorithm for the “parsing” Instruction Selection via Tree Grammars
+- Use a generalization of the dynamic programming algorithm for the “parsing” 
 
-……待续
+**Instruction Selection via Tree Grammars**
+
+每个 Nonterminal 代表a register class or storage location.
+
+Tile 之间的关系被编码为 “rewriting rules”，每条 rule 包含：
+
+- A production in a tree grammar
+- An associated cost
+- A code generation template
+
+rules例：
+
+![image-20250617150658849](./ch9.assets/image-20250617150658849.png)
+
+parsing algorithm：使用 generalization of the dynamic programming algorithm
+
+![image-20250617150916067](./ch9.assets/image-20250617150916067.png)
+
+
+
+## CISC Machines
+

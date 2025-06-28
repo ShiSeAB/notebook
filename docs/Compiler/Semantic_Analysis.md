@@ -10,6 +10,8 @@
   -  Program dependence graph (PDG)
   -  …
 
+
+
 - Sample semantic analysis
   - Type checking
   -  Dead code elimination
@@ -23,6 +25,16 @@
 
 
 ## 1. Symbol table
+
+**Binding** : 赋予 symbol meaning，用 $\rightarrow$ 表示，如 $g\rightarrow string$ ，表示 g 的 type 为 string。
+
+![image-20250616113302230](./Semantic_Analysis.assets/image-20250616113302230.png)
+
+**Environment** ：Binding 的集合。
+
+**Symbol table** ：the implementation of environment。
+
+**Semantic analysis:** traverse the abstract syntax tree (AST) in certain order while maintaining a symbol table
 
 ### 1.1 Symbol Table
 
@@ -114,7 +126,14 @@ binding 的mapping：
 
 ### 2.1 类型及其作用
 
+作用：编的快、跑得快、信得过。
 
+一个 expression 的 type 决定其赋值类型和操作。Type checking 确保了每个 operations 都被正确应用。
+
+- **Soundness:** If the type system accepts a program, then the program will not encounter type errors at runtime
+- **Completeness:** If a program would not encounter type errors at runtime, then the type system accepts it
+
+有关 type checking 的关键问题：什么是 **valid type expressions** ？如何定义两个 types 是相同的？typing rules 是什么？
 
 ### 2.2 Tiger 类型系统
 
@@ -122,7 +141,7 @@ binding 的mapping：
 
 Type Equivalence：
 
-- Name equivalence (NE)：T1 and T2 are equivalent iff T1 and T2 are identical type names defined by the exact same **type declaration**
+- Name equivalence (NE)：T1 and T2 are equivalent iff T1 and T2 are identical type names defined by the exact same **type declaration** . 通过完全相同的类型声明定义的相同类型的名称
 - Structure equivalence (SE)：T1 and T2 are equivalent iff T1 and T2 are composed of the same constructors applied in the same order
 
 ![image-20250413110442927](./Semantic%20Analysis.assets/image-20250413110442927.png)
@@ -137,11 +156,11 @@ Tiger 使用 name equivalence，如下图，虽然 type a,b的结构相同，但
 
 上面的例子只讲了赋值时的类型检查，下述为更完整的 typing rules：
 
-- No implicit conversions
+- No implicit conversions 无隐式转换
 
-- All variables must be initialized at declaration
+- All variables must be initialized at declaration 声明时初始化
 
-- Function call: the types of formal parameters must be equivalent to the types of actual arguments.
+- Function call: the types of formal parameters must be equivalent to the types of actual arguments. 参数类型与调用时的要一一对应
 
 - Array subscript must has integer type
 

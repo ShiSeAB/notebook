@@ -111,11 +111,13 @@ nav:
       #- ABOUT: "./HOME/about.md"
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - AI:
-    - 强化学习:
+    - 强化学习: 
+      - RL/index.md
       - 基础知识: RL/basic_1.md
       - TRPO: RL/TRPO.md
       - PPO: RL/PPO.md
     - 深度学习:
+      - DeepLearning/index.md
       - 卷积神经网络: DeepLearning/Convolution.md
       - 现代卷积神经网络架构: DeepLearning/Modern CNN.md
       - 循环神经网络: DeepLearning/Recurrent neural network.md
@@ -123,6 +125,7 @@ nav:
       - 注意力机制: DeepLearning/Attention Mechanisms
   - CS课程:
     - 编译原理:
+      - Compiler/index.md
       - Introduction: Compiler/Introduction.md
       - 词法分析: Compiler/Lexical_Analysis.md
       - 语法分析: 
@@ -142,6 +145,7 @@ nav:
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
   - 论文阅读:
+    - essays/index.md
     - RL:
       - DeepSeek-R1: essays/DeepSeek-R1.md
     - CoT:
@@ -156,4 +160,5 @@ nav:
       - EgoToM: essays/Social/EgoToM.md
       - TextSocial: essays/Social/Text-Social Benchmark.md
     #- 计算机网络:
-    #- 汇编与接口:
+    - 汇编与接口:
+      - Micro_processor/index.md

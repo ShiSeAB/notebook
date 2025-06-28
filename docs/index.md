@@ -1,17 +1,9 @@
-# Welcome to My Notebook
+# Welcome to Shise's Notebook
 
-网站正在构建中……
+!!! note ""
+    欢迎光临~
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+!!! advice "推荐阅读"
+    - [ 🗂️ 编译原理](./Compiler/index.md)
+    - [ 📚 汇编与接口](./Micro_processor/index.md)
+    - [ 💻 强化学习入门](./RL/index.md)
