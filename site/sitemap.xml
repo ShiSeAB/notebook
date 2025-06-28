@@ -2,158 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://shiseab.github.io/notebook/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/Compiler/</loc>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Abstract_Syntax/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Activation_Record/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Introduction/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Lexical_Analysis/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Parsing-2/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Parsing/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/Semantic_Analysis/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch10/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch11/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch13/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch14/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch18/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch7-IR/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch8/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/Compiler/ch9/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/DeepLearning/</loc>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Attention%20Mechanisms/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Convolution/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Modern%20CNN/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Modern%20RNN/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Recurrent%20neural%20network/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/DeepLearning/Transformer/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/Micro_processor/</loc>
+         <lastmod>2025-06-28</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/RL/</loc>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/RL/PPO/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/RL/TRPO/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/RL/basic_1/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/blog/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essayReading/2411.13602/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
+    </url>
+    <url>
+         <loc>https://shiseab.github.io/notebook/essays/</loc>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/DEER/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/DeepSeek-R1/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/MRL/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/SEAL/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/ThoughtTerminator/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/TokenSkip/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/Social/EgoToM/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/Social/MiMeQA/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/Social/SocialGenome/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/essays/Social/Text-Social%20Benchmark/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/nlp/Deep%20Learning%20Basic/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
     <url>
          <loc>https://shiseab.github.io/notebook/nlp/Word%20Embedding/</loc>
-         <lastmod>2025-06-15</lastmod>
+         <lastmod>2025-06-28</lastmod>
     </url>
 </urlset>

@@ -144,6 +144,8 @@ nav:
       - 循环优化: Compiler/ch18.md
     - 自然语言处理导论: 
       - 深度学习基础: nlp/Deep Learning Basic.md
+    - 汇编与接口:
+      - Micro_processor/index.md
   - 论文阅读:
     - essays/index.md
     - RL:
@@ -160,5 +162,3 @@ nav:
       - EgoToM: essays/Social/EgoToM.md
       - TextSocial: essays/Social/Text-Social Benchmark.md
     #- 计算机网络:
-    - 汇编与接口:
-      - Micro_processor/index.md
