@@ -108,6 +108,7 @@ extra_javascript:
 nav: 
   - HOME: 
     - "index.md"
+    - 友链: link.md
       #- ABOUT: "./HOME/about.md"
       #- SPONSORSHIP: "./HOME/sponsorship.md"
   - AI:
