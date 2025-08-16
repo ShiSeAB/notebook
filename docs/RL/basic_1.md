@@ -6,6 +6,8 @@
 - new state 随机性： $P[S'=s'|S=s,A=a]=p(s'|s,a)$ ，state transition
 - reward $R_i$ 取决于 $S_i,A_i$
 
+Experience : agent 可与 environment 交互多次，进行多个实验，形成多个 trajectories，trajectories 的集合被称为 “experience”。即 $E=\{\tau_1,\tau_2,...,\tau_K \}$
+
 Return ： $U_t = R_t + R_{t+1}+R_{t+2}+...$
 
 Discounted return : $U_t = R_t + \gamma R_{t+1}+{\gamma}^2R_{t+2}+...$ ，回报是一个累积的概念，它考虑了从当前时刻开始到未来某个时刻（可能是一个完整的回合结束）的所有奖励
@@ -17,6 +19,8 @@ Optimal Action-Value function : $Q^*(s_t,a_t) = max_\pi Q_\pi (s_t,a_t)$ , 通�
 State-value function : $V_\pi (S_t)=E_A[Q_\pi(s_t,A)]$ ，评价当前状态是好是坏，并评价policy（因为状态函数越大，说明胜算越大，所以策略越好）
 
 Advantage Function : $A_\theta(s,a)=Q_\theta(s,a)-V_\theta(s)$ ，表示在 state s 下，做出 Action a，比其他动作能带来多少优势。
+
+rollout : 特指利用当前 policy model 在环境中生成一段轨迹的过程。这段轨迹可以是完整的，也可以只是部分数据。Rollout更侧重于“展开”策略执行的具体过程，用来评估策略或计算优势等。
 
 
 
@@ -41,9 +45,13 @@ Advantage Function : $A_\theta(s,a)=Q_\theta(s,a)-V_\theta(s)$ ，表示在 stat
 ![image-20250522205941056](./basic_1.assets/image-20250522205941056.png)
 
  由此定义 Approximate state-value function : 
+
+
 $$
 V(s;\theta)=\sum_a\pi(a|s,\theta)·Q_\pi(s,a)
 $$
+
+
 我们需要通过学习参数 $\theta$ 使 $J(\theta)=E_S[V(S;\theta)]$ 最大化。使用 Policy gradient ascent 最大化。
 
 Form 1 推导，适用 discrete action：
@@ -98,7 +106,7 @@ Monte Carlo refers to algorithms that rely on repeated random sampling to obtain
 
 
 
-### Policy Gradient
+## Policy Gradient
 
 按照 policy model 执行出 trajectory $\tau=\{s_1,a_1,r_1,s_2,a_2,r_2...\}$ , 其概率为：
 

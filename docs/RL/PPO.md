@@ -7,11 +7,19 @@
 已知：
 
 
+
 $$
 Q_\theta=r_t+\gamma*V_\theta(s_{t+1}) \\
-A_\theta(s_t,a)=r_t+\gamma*V_\theta(s_{t+1})-V_\theta(s_{t}) \\
+$$
+
+$$
+A_\theta(s_t,a)=r_t+\gamma*V_\theta(s_{t+1})-V_\theta(s_{t})
+$$
+
+$$
 V_\theta(s_{t+1}) \approx r_{t+1}+\gamma*V_\theta(s_{t+2})
 $$
+
 
 
 对优势函数进行多次采样（t 步采样即执行 t 步 action），采样 T 次后：
@@ -50,9 +58,9 @@ $\delta_{t+1}^V=r_{t+1}+\gamma*V_\theta(s_{t+2})-V_\theta(s_{t+1})$ ，在第 t+
 >
 > 从人类的角度看，为了解决学习中的exploration和exploitation，我们可以利用一个策略（行为策略）来保持探索性，提供多样化的数据，而不断优化另一个策略（目标策略）
 >
-> On policy：简单，但没法同时很好保持即探索又利用
+> On policy：边实践边学习，如 policy-gradient，采样的数据来自更新后的策略，数据不能重复利用（采样数据-更新模型-丢弃旧数据-从新模型采样数据……）简单，但没法同时很好保持即探索又利用
 >
-> Off policy：算法可以利用其他策略生成的数据来优化目标策略。数据可以复用，可以在保持探索的同时求到全局最优值。
+> Off policy：算法可以利用其他策略生成的数据来优化目标策略。数据可以复用，可以在保持探索的同时求到全局最优值。如 PPO/GRPO
 
 公式更新（将对 $\theta$ 的分布转化为对 $\theta'$ 的分布）：
 
@@ -80,8 +88,8 @@ PPO2 通过 clip 函数来调整策略差异：
 
 RLHF-PPO阶段共有四个模型：
 
-- **Actor Model：** 这就是我们想要训练的目标语言模型
-- **Critic Model：** 它的作用是预估总收益 $V_{t}$ , 给 Actor model 打分
+- **Actor Model：** 这就是我们想要训练的目标语言模型(policy model)
+- **Critic Model：** 它的作用是预估总收益 $V_{t}$ , 给 Actor model 打分(value model)
 - **Reward Model：奖励模型**，它的作用是计算即时收益 $R_{t}$
 - **Reference Model：参考模型**，它的作用是在RLHF阶段给语言模型增加一些“约束”，防止语言模型训歪（朝不受控制的方向更新，效果可能越来越差）
 
@@ -124,14 +132,4 @@ Reward 计算：
 最后得到 PPO 的损失函数（来自deepseek-r1）：
 
 ![image-20250524171949846](./PPO.assets/image-20250524171949846.png)
-
-
-
-## GRPO
-
-![image-20250524172353735](./PPO.assets/image-20250524172353735.png)
-
-GRPO 相对 PPO 少了一个 value model （资源占用更少），而且 reward 计算时对同个question多个output的平均reward作为baseline：
-
-![image-20250524172602335](./PPO.assets/image-20250524172602335.png)
 
