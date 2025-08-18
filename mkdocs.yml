@@ -118,7 +118,9 @@ nav:
       - TRPO: RL/TRPO.md
       - PPO: RL/PPO.md
       - GRPO: RL/GRPO.md
-      #- Reward Model: RL/Reward model.md
+      - DAPO: essays/DAPO.md
+      - VAPO: essays/VAPO.md
+      - Reward Model: RL/Reward model.md
     - 深度学习:
       - DeepLearning/index.md
       - 卷积神经网络: DeepLearning/Convolution.md
