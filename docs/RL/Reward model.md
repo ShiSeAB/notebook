@@ -71,7 +71,7 @@ generative PRM
 - 首先，将 PRM800K 数据集中的“问题-解决方案” pair 输入给教师模型（论文中采用 QwQ-32B-Preview），以生成原始的 verification 链
 - 接着进行筛选：生成的 verification 链志愿在其对每一个步骤的判断都与 PRM800K 数据集中人工标注的 label 一致时，才会被保留
 - 同时，不符合预设输出格式与超出长度限制的 verification 链都会被丢弃
-- 对得到数据进行预处理：删除最后一次验证决策之后的所有内容；添加特殊标记（例如 <think> 和 </think>）以标注验证推理部分。
+- 对得到数据进行预处理：删除最后一次验证决策之后的所有内容；添加特殊标记（例如 \<think\> 和 \</think\>）以标注验证推理部分。
 
 有了高质量的训练数据，下一步就是将一个通用的 LRMs（如 R1-Distill-Qwen 系列）转化为一个专业的验证器。论文采用 LoRA 微调。
 
@@ -95,7 +95,7 @@ generative PRM
 
 - 在通过RPE为每个步骤确定了高质量的二元标签后，用 QwQ-32B 来为每个步骤生成包含CoT分析和代码验证的结构化文本。再使用 QwQ-32B 基于自身理解对其进行判断，如果判断与先前通过RPE计算得出的标签存在任何不一致，整个接替方案被丢弃。
 
-  - 对每个步骤，用 **<analysis> </analysis>** 标签让模型分析推理过程，详细解释段落正确或不正确的原因；同时使用 **<verify> </verify>** 标签让模型针对可以使用 python 验证的部分写出相应的验证代码，执行并将结果写入 [Code Output]。如果 <verify> 与<analysis> 验证不一致，模型会进行自我反思，直到生成的一致为止。
+  - 对每个步骤，用 \<analysis\> \</analysis\> 标签让模型分析推理过程，详细解释段落正确或不正确的原因；同时使用 \<verify\> \</verify\> 标签让模型针对可以使用 python 验证的部分写出相应的验证代码，执行并将结果写入 [Code Output]。如果 \<verify\> 与 \<analysis\> 验证不一致，模型会进行自我反思，直到生成的一致为止。
 
 - 得到高质量合成数据后，对模型进行 SFT。
 
@@ -106,26 +106,6 @@ generative PRM
 ### 类 R1 的 RL 方式训练 RM
 
 [J1: Incentivizing Thinking in LLM-as-a-Judge via Reinforcement Learning](https://arxiv.org/abs/2505.10320)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
