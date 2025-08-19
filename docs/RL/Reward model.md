@@ -32,7 +32,7 @@ from 生成方式：
 from 作用方式：
 
 - Pointwise ：直接对单个样本给出 reward
-- Pairwise ：给出两个 response，由模型判断好坏，选出更好的回答，典型的样本格式为 <prompt, chosen, rejected>.
+- Pairwise ：给出两个 response，由模型判断好坏，选出更好的回答，典型的样本格式为 \<prompt, chosen, rejected\> .
 
 ![image-20250817215521391](./Reward%20model.assets/image-20250817215521391.png)
 
