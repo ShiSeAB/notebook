@@ -120,6 +120,7 @@ nav:
       - GRPO: RL/GRPO.md
       - DAPO: essays/DAPO.md
       - VAPO: essays/VAPO.md
+      - ARPO: RL/ARPO.md
       - Reward Model: RL/Reward model.md
     - 深度学习:
       - DeepLearning/index.md

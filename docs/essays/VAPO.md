@@ -14,6 +14,14 @@ VAPO 在 PPO 上进行改进，两者都是 value-model based. 在 PPO 中，val
 
 采用 value-Pretrain 策略，从一个 fixed policy 中采样持续生成奖励，利用 Monte-Carlo return 更新模型，接着训练 value model 直到训练指标达到足够低的值。
 
+
+$$
+A_\theta^{GAE}(s_t,a)=\sum_{b=0}^{\infin}(\gamma\lambda)^b\delta^V_{t+b}
+$$
+
+
+![image-20250819104822886](./VAPO.assets/image-20250819104822886.png)
+
 接着采用 Decoupled-GAE 策略：更新 value model 时设置 $\lambda=1.0$ 确保实现无偏梯度下降优化，解决长 CoT 任务中的 reward-decay 问题。更新 policy model 时，设置 $\lambda = 0.95$ 以加快策略收敛。
 
 - 当$\lambda=1$时，优势估计等同于使用整个轨迹的 Monte-Carlo return，这具有**低偏差**但**高方差**的特点，因为它虽然使用了真实的、完整的奖励信息，但这个信息本身可能充满噪声。奖励信号在长推理链中不会衰减。
@@ -50,22 +58,4 @@ VAPO 在 PPO 上进行改进，两者都是 value-model based. 在 PPO 中，val
 ![image-20250817195622217](./VAPO.assets/image-20250817195622217.png)
 
 VAPO 达到峰值性能所用 step 小于 DAPO，且没有发生崩溃。但是由于其要更新两个模型，对设备要求还是更高的，，，
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
